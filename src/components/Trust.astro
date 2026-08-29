@@ -1,0 +1,30 @@
+---
+import { certifications } from '../data/site';
+---
+
+<section class="border-t border-ink/8 bg-paper px-5 py-20 sm:px-8">
+  <div class="mx-auto max-w-7xl">
+    <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Secure and trusted</p>
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {
+        certifications.map((c) => (
+          <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-ink text-signal">
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path
+                  d="M10 2.5 16 5v5.2c0 3.6-2.4 6.4-6 7.8-3.6-1.4-6-4.2-6-7.8V5l6-2.5Z"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linejoin="round"
+                />
+                <path d="M7.2 10.2 9.1 12l3.8-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium tracking-tight">{c.name}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink/70">{c.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

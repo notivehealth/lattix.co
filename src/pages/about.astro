@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CTA from '../components/CTA.astro';
+
+const values = [
+  {
+    title: 'Precision',
+    body: 'Matching, translation, and reconciliation are the product. Close enough is how people get the wrong chart.',
+  },
+  {
+    title: 'Stewardship',
+    body: 'Health data is not a growth hack. We take the minimum permitted access and leave an audit trail.',
+  },
+  {
+    title: 'Interconnect',
+    body: 'A lattice only works if every node can find the others. We would rather connect a competitor’s lab than leave a gap in the record.',
+  },
+];
+
+const timeline = [
+  { y: 'Foundation', d: 'Started as diagnostic data aggregation for labs that were drowning in peer-to-peer interfaces.' },
+  { y: 'Platform', d: 'Turned that connectivity into a FHIR interoperability platform: MPI, locator, processing, chart.' },
+  { y: 'Network', d: 'Extended the lattice across clinical records, imaging, alerts, and patient-mediated access.' },
+  { y: 'Exchange', d: 'Aligned the same pipes with TEFCA and state data-sharing frameworks so customers connect once.' },
+];
+---
+
+<Base
+  title="About"
+  description="Lattix is the national lattice for health data — labs, imaging, and the complete clinical record."
+>
+  <PageHero
+    eyebrow="About Lattix"
+    title="Improving outcomes with organized, actionable health data"
+    lede="It is a jungle out there in health information technology. Lattix is the lattice that holds the nodes together."
+    image="/images/lattice-close.jpg"
+    primaryHref="/contact"
+    primaryLabel="Contact us"
+  />
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-3xl text-lg leading-relaxed text-ink/75">
+      <p>
+        A lattice is a structure of repeating connections. That is the job: not a single heroic
+        interface, but a network dense enough that a patient’s story can be found, matched, and
+        delivered wherever care happens.
+      </p>
+      <p class="mt-6">
+        Lattix is an interoperability platform providing permitted access to actionable patient
+        data. Customers use it to improve outcomes, streamline workflows, and create a more
+        equitable health system — a single source of truth instead of a fax machine with an API.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">How we got here</h2>
+      <ol class="mt-12 grid gap-5 md:grid-cols-2">
+        {
+          timeline.map((t) => (
+            <li class="rounded-2xl border border-ink/8 bg-paper p-7">
+              <p class="text-[0.7rem] uppercase tracking-[0.16em] text-gold">{t.y}</p>
+              <p class="mt-3 text-sm leading-relaxed text-ink/70">{t.d}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">Company values</h2>
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        {
+          values.map((v) => (
+            <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+              <h3 class="font-medium">{v.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/65">{v.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CTA title="Work with us" lede="Interoperability people, clinicians, and operators — we would like to hear from you." />
+</Base>

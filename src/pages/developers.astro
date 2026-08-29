@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CodeSample from '../components/CodeSample.astro';
+import CTA from '../components/CTA.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base
+  title="Developers"
+  description="FHIR-native APIs for clinical records, lab and imaging orders, alerts, and patient access. Sandbox, versioned changes, sample code."
+>
+  <PageHero
+    eyebrow="Developers"
+    title="The lattice, as an API"
+    lede="Integrate Clinical Record, Diagnostics, Alerts, and Patient Access with FHIR REST APIs, a sandbox tenant, and production-ready examples."
+    primaryHref="/contact"
+    primaryLabel="Request sandbox access"
+    secondaryHref="#fhir"
+    secondaryLabel="Example request"
+  />
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          [
+            { t: 'Software + API', d: 'Web application for operators, FHIR for product teams.' },
+            { t: 'Sandbox', d: 'A non-production tenant for development and testing.' },
+            { t: 'Sample code', d: 'Node, Python, and browser examples for the common paths.' },
+            { t: 'Versioned changes', d: 'API changes ship with versions, not surprises.' },
+            { t: 'Workflow diagrams', d: 'Order, retrieve, subscribe — documented as they run.' },
+            { t: 'Metadata support', d: 'Capability statements and resource metadata, FHIR-native.' },
+          ].map((i) => (
+            <article class="rounded-2xl border border-ink/8 bg-cream p-6">
+              <h2 class="font-medium">{i.t}</h2>
+              <p class="mt-2 text-sm text-ink/65">{i.d}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="fhir" class="bg-ink px-5 py-24 text-cream sm:px-8">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+      <div>
+        <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Example</p>
+        <h2 class="mt-4 font-serif text-4xl tracking-tight">Read a patient from FHIR</h2>
+        <p class="mt-5 text-mist">
+          Base URL <span class="font-mono text-signal">https://api.lattix.co/fhir</span>. OAuth 2.0
+          bearer tokens. Resources you already know: Patient, Encounter, Observation, DiagnosticReport,
+          ServiceRequest, DocumentReference, Subscription.
+        </p>
+        <p class="mt-4 text-sm text-mist">
+          Legacy interop is handled under the hood: IHE, X12, C-CDA, Direct, HL7 v2.
+        </p>
+        <div class="mt-8">
+          <Button href="/contact" variant="primary">Get credentials</Button>
+        </div>
+      </div>
+      <CodeSample />
+    </div>
+  </section>
+
+  <section class="bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">Common resources</h2>
+      <div class="mt-10 overflow-hidden rounded-2xl border border-ink/8">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-ink text-cream">
+            <tr>
+              <th class="px-5 py-3 font-medium">Resource</th>
+              <th class="px-5 py-3 font-medium">Used for</th>
+            </tr>
+          </thead>
+          <tbody class="bg-paper">
+            {
+              [
+                ['Patient', 'Identity, MPI match, enrollment'],
+                ['ServiceRequest', 'Lab and imaging orders'],
+                ['DiagnosticReport / Observation', 'Structured results'],
+                ['DocumentReference / Composition', 'C-CDA and clinical documents'],
+                ['Encounter', 'ADT context and inferred activity'],
+                ['Subscription', 'Clinical Alerts and ADT delivery'],
+              ].map(([r, u]) => (
+                <tr class="border-t border-ink/8">
+                  <td class="px-5 py-3 font-mono text-xs">{r}</td>
+                  <td class="px-5 py-3 text-ink/70">{u}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <CTA title="Request a sandbox tenant" />
+</Base>

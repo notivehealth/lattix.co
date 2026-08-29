@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CTA from '../../components/CTA.astro';
+import Trust from '../../components/Trust.astro';
+---
+
+<Base
+  title="Labs & imaging vendors"
+  description="One interface providing access to thousands of providers. Accept orders, report results, and participate in nationwide exchange."
+>
+  <PageHero
+    eyebrow="Markets · Labs & imaging"
+    title="One interface. Thousands of ordering providers."
+    lede="Join the Lattix diagnostic lattice to accept orders from care teams nationwide, automate result reporting, and reduce the cost of connectivity."
+    image="/images/lab.jpg"
+  />
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight sm:text-5xl">Why diagnostic vendors join</h2>
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">Increase order volume</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            Integrate once and let thousands of providers place orders from your lab or imaging
+            center — national, regional, or specialty.
+          </p>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">Reduce technical burden</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            Avoid costly peer-to-peer interfaces. FHIR-native APIs replace a graveyard of one-off
+            connections.
+          </p>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">Offload vendor management</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            Lattix manages downstream provider organizations so you can focus on diagnostics, not
+            onboarding every clinic that wants to order.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden bg-ink px-5 py-24 text-cream sm:px-8">
+    <img src="/images/imaging.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-25" />
+    <div class="absolute inset-0 bg-ink/75"></div>
+    <div class="relative mx-auto max-w-3xl">
+      <h2 class="font-serif text-4xl tracking-tight">Ready for TEFCA?</h2>
+      <p class="mt-5 text-lg text-mist">
+        As a network built for TEFCA, Lattix lets lab and imaging vendors exchange nationally while
+        meeting future government requirements for diagnostic data — without a separate federal
+        project.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="max-w-2xl font-serif text-4xl tracking-tight">With a complete patient context</h2>
+      <p class="mt-5 max-w-2xl text-ink/70">
+        CLIA labs and imaging groups with access to an actionable clinical history can interpret
+        results correctly, inform genetic testing, distribute nationally, identify future testing
+        needs, and avoid unnecessary studies.
+      </p>
+    </div>
+  </section>
+
+  <Trust />
+  <CTA title="Join the diagnostic lattice" />
+</Base>

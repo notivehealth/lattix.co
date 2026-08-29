@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
+---
+
+<Base title="Not found" description="This page is not on the lattice.">
+  <section class="relative overflow-hidden bg-ink px-5 py-32 text-cream sm:px-8">
+    <div class="pointer-events-none absolute inset-0 bg-lattice-dots opacity-40"></div>
+    <div class="relative mx-auto max-w-2xl text-center">
+      <p class="font-mono text-sm text-signal">404</p>
+      <h1 class="mt-4 font-serif text-5xl tracking-tight">This node is missing.</h1>
+      <p class="mt-5 text-mist">The page you requested is not on the lattice. Try the home page or talk to us.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <Button href="/" variant="primary">Go home</Button>
+        <Button href="/contact" variant="secondary">Contact</Button>
+      </div>
+    </div>
+  </section>
+</Base>

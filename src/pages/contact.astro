@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../data/site';
+
+const roles = ['EHR', 'Payer / payvider', 'Digital health', 'Lab or imaging', 'Provider / VBC', 'Other'];
+---
+
+<Base
+  title="Contact"
+  description="Talk with Lattix about labs, imaging, clinical records, and nationwide health data exchange."
+>
+  <PageHero
+    eyebrow="Contact"
+    title="Talk to an expert"
+    lede="Tell us who you are and what you need to connect. We will follow up to schedule a conversation."
+    showCtas={false}
+  />
+
+  <section class="bg-paper px-5 py-20 sm:px-8">
+    <div class="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1fr_280px]">
+      <form id="contact-form" class="rounded-3xl border border-ink/8 bg-cream p-6 sm:p-10" novalidate>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="block text-sm">
+            <span class="mb-1.5 block font-medium">First name</span>
+            <input required name="firstName" autocomplete="given-name" class="h-11 w-full rounded-xl border border-ink/12 bg-paper px-3 outline-none focus:border-signal-2" />
+          </label>
+          <label class="block text-sm">
+            <span class="mb-1.5 block font-medium">Last name</span>
+            <input required name="lastName" autocomplete="family-name" class="h-11 w-full rounded-xl border border-ink/12 bg-paper px-3 outline-none focus:border-signal-2" />
+          </label>
+          <label class="block text-sm">
+            <span class="mb-1.5 block font-medium">Work email</span>
+            <input required type="email" name="email" autocomplete="email" class="h-11 w-full rounded-xl border border-ink/12 bg-paper px-3 outline-none focus:border-signal-2" />
+          </label>
+          <label class="block text-sm">
+            <span class="mb-1.5 block font-medium">Organization</span>
+            <input required name="org" autocomplete="organization" class="h-11 w-full rounded-xl border border-ink/12 bg-paper px-3 outline-none focus:border-signal-2" />
+          </label>
+        </div>
+        <label class="mt-5 block text-sm">
+          <span class="mb-1.5 block font-medium">I am with a</span>
+          <select name="role" class="h-11 w-full rounded-xl border border-ink/12 bg-paper px-3 outline-none focus:border-signal-2">
+            {roles.map((r) => <option value={r}>{r}</option>)}
+          </select>
+        </label>
+        <label class="mt-5 block text-sm">
+          <span class="mb-1.5 block font-medium">What should we talk about?</span>
+          <textarea required name="message" rows="5" class="w-full rounded-xl border border-ink/12 bg-paper px-3 py-2 outline-none focus:border-signal-2"></textarea>
+        </label>
+        <button
+          type="submit"
+          class="mt-6 inline-flex h-12 items-center justify-center rounded-full bg-ink px-6 font-medium text-cream transition hover:bg-ink-3"
+        >
+          Send message
+        </button>
+        <p id="form-status" class="mt-4 hidden text-sm text-signal-2" role="status"></p>
+      </form>
+
+      <aside class="space-y-8">
+        <div>
+          <p class="text-[0.7rem] uppercase tracking-[0.16em] text-gold">Email</p>
+          <a href={`mailto:${site.email}`} class="mt-2 block text-lg">{site.email}</a>
+        </div>
+        <div>
+          <p class="text-[0.7rem] uppercase tracking-[0.16em] text-gold">Security</p>
+          <a href="mailto:security@lattix.co" class="mt-2 block">security@lattix.co</a>
+        </div>
+        <div>
+          <p class="text-[0.7rem] uppercase tracking-[0.16em] text-gold">Press</p>
+          <a href="mailto:press@lattix.co" class="mt-2 block">press@lattix.co</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const lines = [
+      `Name: ${data.get('firstName')} ${data.get('lastName')}`,
+      `Email: ${data.get('email')}`,
+      `Organization: ${data.get('org')}`,
+      `Role: ${data.get('role')}`,
+      '',
+      String(data.get('message') ?? ''),
+    ];
+    const subject = encodeURIComponent(`Lattix inquiry — ${data.get('org')}`);
+    const body = encodeURIComponent(lines.join('\n'));
+    window.location.href = `mailto:hello@lattix.co?subject=${subject}&body=${body}`;
+    if (status) {
+      status.textContent = 'Opening your email client. If nothing happens, write us at hello@lattix.co.';
+      status.classList.remove('hidden');
+    }
+    form.reset();
+  });
+</script>

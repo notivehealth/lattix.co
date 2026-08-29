@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CTA from '../components/CTA.astro';
+import Trust from '../components/Trust.astro';
+import { products } from '../data/site';
+
+const features = [
+  {
+    title: 'Master Patient Index',
+    body: 'Scan multiple systems to identify the right person using heuristic matching, referential data, and demographics — even when identifiers never quite agree.',
+  },
+  {
+    title: 'Record Locator Services',
+    body: 'Index where records live and use those locations to make the next query faster. Together, MPI and RLS make discovery efficient at national scale.',
+  },
+  {
+    title: 'Data processing engine',
+    body: 'Aggregate, de-duplicate, and normalize fragmented records into standard FHIR. The result is a longitudinal, high-quality, actionable chart.',
+  },
+  {
+    title: 'National data repository',
+    body: 'Store raw source data and normalized FHIR resources for efficient querying, with encryption, retention, and auditing aligned to SOC 2 and HITRUST.',
+  },
+  {
+    title: 'Patient chart',
+    body: 'A consolidated, searchable record. Place orders, send referrals, review reports, and work the populations you treat — without leaving the chart.',
+  },
+  {
+    title: 'FHIR REST APIs',
+    body: 'Full interoperability between FHIR and legacy standards including IHE, X12, C-CDA, document-based exchange, Direct, and HL7 v2.',
+  },
+];
+---
+
+<Base
+  title="Platform"
+  description="The Lattix Health Interoperability Platform: master patient index, record locator, normalization, repository, chart, and FHIR APIs."
+>
+  <PageHero
+    eyebrow="Platform"
+    title="A national health interoperability platform"
+    lede="Organizations need more than a series of connections. They need the data to be meaningful, and delivered when and where care happens."
+    image="/images/lattice-close.jpg"
+    secondaryHref="/developers"
+    secondaryLabel="API reference"
+  />
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-3xl">
+      <p class="text-lg leading-relaxed text-ink/75">
+        Unreliable patient identifiers, information blocking, and disparate systems still leave the
+        health system disconnected. Varying standards make it worse. The Lattix platform was built to
+        ingest, normalize, and deliver actionable clinical data — and the social context around it —
+        so providers, payers, labs, and digital health teams can make timely decisions.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight sm:text-5xl">Primary capabilities</h2>
+      <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {
+          features.map((f) => (
+            <article class="rounded-2xl border border-ink/8 bg-paper p-7">
+              <h3 class="text-lg font-medium tracking-tight">{f.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/65">{f.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">Products on the platform</h2>
+      <p class="mt-4 max-w-2xl text-ink/70">
+        Every Lattix product sits on the same lattice: identity, location, processing, and delivery.
+      </p>
+      <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          products
+            .filter((p) => p.slug !== 'platform')
+            .map((p) => (
+              <a href={p.href} class="rounded-2xl border border-ink/8 bg-cream p-6 hover:border-signal/40">
+                <h3 class="font-medium">{p.name}</h3>
+                <p class="mt-2 text-sm text-ink/65">{p.blurb}</p>
+              </a>
+            ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Trust />
+  <CTA />
+</Base>

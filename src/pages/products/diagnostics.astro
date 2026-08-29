@@ -1,0 +1,149 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Stats from '../../components/Stats.astro';
+import CTA from '../../components/CTA.astro';
+import Trust from '../../components/Trust.astro';
+import Button from '../../components/Button.astro';
+
+const steps = [
+  {
+    n: '01',
+    title: 'Select a patient',
+    body: 'Queue one patient or prepare a bulk order. Choose one or many tests from hundreds of supported diagnostics.',
+  },
+  {
+    n: '02',
+    title: 'Place an order',
+    body: 'Order from national reference labs, health-system labs, regional and specialty labs, and imaging centers on the lattice.',
+  },
+  {
+    n: '03',
+    title: 'Review results',
+    body: 'Receive structured results electronically and write them into the patient chart or your own system.',
+  },
+];
+
+const uses = [
+  { title: 'Virtual care', body: 'Place diagnostic orders and receive results for remote care and monitoring.' },
+  { title: 'EHR vendors', body: 'Embed lab and imaging ordering with access to every Lattix diagnostic partner.' },
+  { title: 'FQHCs and clinics', body: 'Centralize ordering with the largest labs and imaging vendors without a stack of interfaces.' },
+];
+---
+
+<Base
+  title="Diagnostics"
+  description="Send lab and imaging orders electronically to 120+ diagnostic vendors and receive structured results through one Lattix interface."
+>
+  <PageHero
+    eyebrow="Diagnostics"
+    title="Lab and imaging ordering on a single interface"
+    lede="Send lab and imaging orders electronically to any connected diagnostic vendor and access results without a six-month build for each lab."
+    image="/images/lab.jpg"
+    secondaryHref="/markets/labs"
+    secondaryLabel="For diagnostic vendors"
+  />
+
+  <section class="bg-ink px-5 py-16 text-cream sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <p class="mb-8 text-sm text-mist">Easy-to-implement APIs · Electronic lab and imaging ordering · 120+ diagnostic vendors</p>
+      <Stats
+        dark
+        items={[
+          { value: '120+', label: 'Diagnostic vendors' },
+          { value: '6,200+', label: 'Patient service centers' },
+          { value: '90%', label: 'U.S. within 20 miles of a PSC' },
+          { value: 'Weeks', label: 'Typical time to first order' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="max-w-2xl font-serif text-4xl tracking-tight sm:text-5xl">Automate diagnostic ordering</h2>
+      <div class="mt-12 grid gap-6 lg:grid-cols-3">
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="text-lg font-medium">Access major labs and imagers</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink/65">
+            Centralize ordering with national reference laboratories, health-system labs, specialty
+            diagnostics, and imaging centers. One API, modern standards.
+          </p>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="text-lg font-medium">Reduce your technical burden</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink/65">
+            We are already connected. Start ordering in weeks instead of spending an engineering
+            quarter on a single lab interface.
+          </p>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="text-lg font-medium">Improve clinical workflows</h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink/65">
+            Replace paper and fax with electronic orders and structured results, so the chart — not
+            the inbox — is the source of truth.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ink px-5 py-24 text-cream sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">Order tests. Get results.</h2>
+      <p class="mt-4 max-w-2xl text-mist">
+        Providers use the Lattix web application. Developers embed the same workflow in their product.
+      </p>
+      <ol class="mt-12 grid gap-6 md:grid-cols-3">
+        {
+          steps.map((s) => (
+            <li class="rounded-2xl border border-white/10 bg-ink-2 p-7">
+              <span class="font-mono text-xs text-signal">{s.n}</span>
+              <h3 class="mt-3 text-lg font-medium">{s.title}</h3>
+              <p class="mt-2 text-sm text-mist">{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="font-serif text-4xl tracking-tight">Imaging on the same lattice</h2>
+        <p class="mt-5 text-lg text-ink/70">
+          Diagnostics is not only bloodwork. Order imaging, receive results, and file them next to
+          the lab data and the rest of the longitudinal record — one patient, one interchange.
+        </p>
+        <div class="mt-8">
+          <Button href="/contact" variant="dark">Talk about imaging connectivity</Button>
+        </div>
+      </div>
+      <img
+        src="/images/imaging.jpg"
+        alt="Radiology workspace"
+        class="h-80 w-full rounded-3xl object-cover"
+      />
+    </div>
+  </section>
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">Use cases</h2>
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        {
+          uses.map((u) => (
+            <article class="rounded-2xl border border-ink/8 bg-cream p-6">
+              <h3 class="font-medium">{u.title}</h3>
+              <p class="mt-2 text-sm text-ink/65">{u.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Trust />
+  <CTA />
+</Base>

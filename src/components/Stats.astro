@@ -1,0 +1,19 @@
+---
+import { stats as defaultStats } from '../data/site';
+interface Props {
+  items?: { value: string; label: string }[];
+  dark?: boolean;
+}
+const { items = defaultStats, dark = false } = Astro.props;
+---
+
+<div class:list={['grid grid-cols-2 gap-8 md:grid-cols-4', dark ? 'text-cream' : 'text-ink']}>
+  {
+    items.map((s) => (
+      <div>
+        <div class="font-serif text-4xl tracking-tight sm:text-5xl">{s.value}</div>
+        <div class:list={['mt-1 text-sm', dark ? 'text-mist' : 'text-ink/60']}>{s.label}</div>
+      </div>
+    ))
+  }
+</div>

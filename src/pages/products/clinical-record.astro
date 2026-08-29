@@ -1,0 +1,106 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Stats from '../../components/Stats.astro';
+import RecordPreview from '../../components/RecordPreview.astro';
+import CTA from '../../components/CTA.astro';
+import Trust from '../../components/Trust.astro';
+import { dataTypes } from '../../data/site';
+
+const uses = [
+  { title: 'Virtual care', body: 'Streamline intake and share progress notes with clinicians across the country.' },
+  { title: 'Chronic condition management', body: 'Inform prevention, management, and treatment with a full history — not the last visit.' },
+  { title: 'Specialty pharmacy', body: 'Identify efficacious, cost-effective therapies from clinical and medication history.' },
+  { title: 'Remote patient monitoring', body: 'Pull comprehensive clinical data and share Continuity of Care Documents back to national networks.' },
+  { title: 'Specialty CLIA labs', body: 'Interpret complex results against the rest of the chart, not a single requisition.' },
+  { title: 'Triage and care coordination', body: 'Give nurses and coordinators medications, allergies, procedures, and recent encounters in real time.' },
+];
+---
+
+<Base
+  title="Clinical Record"
+  description="Unlock complete clinical histories. Lattix retrieves, matches, and normalizes records from nationwide EHRs into one longitudinal FHIR chart."
+>
+  <PageHero
+    eyebrow="Clinical Record"
+    title="Unlock complete clinical histories"
+    lede="Exchange data on a national health information network. Treatment, patient access, and insurance purposes of use — FHIR APIs, actionable data."
+    image="/images/record-glow.jpg"
+    secondaryHref="/developers"
+    secondaryLabel="FHIR APIs"
+  />
+
+  <section class="bg-ink px-5 py-16 text-cream sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <Stats
+        dark
+        items={[
+          { value: '220M+', label: 'Patients' },
+          { value: '750K+', label: 'Clinicians' },
+          { value: '147K+', label: 'Care sites' },
+          { value: '92%', label: 'U.S. coverage' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
+      <div>
+        <h2 class="font-serif text-4xl tracking-tight sm:text-5xl">Empower care teams with EHR data</h2>
+        <p class="mt-5 text-lg text-ink/70">
+          Important clinical information is missing in nearly one in seven visits. With a complete
+          record, providers make more informed treatment decisions, avoid duplicative testing, and
+          stop waiting 60 days for another organization’s chart.
+        </p>
+        <div class="mt-8 grid gap-5">
+          <article>
+            <h3 class="font-medium">Improve outcomes</h3>
+            <p class="mt-1 text-sm text-ink/65">A usable view of medical history — not a stack of faxes — at the point of care.</p>
+          </article>
+          <article>
+            <h3 class="font-medium">Reduce administrative burden</h3>
+            <p class="mt-1 text-sm text-ink/65">Real-time access to a single longitudinal record, instead of hours of records requests.</p>
+          </article>
+          <article>
+            <h3 class="font-medium">Skip costly integrations</h3>
+            <p class="mt-1 text-sm text-ink/65">One national clinical network. No one-off connections for every health system you encounter.</p>
+          </article>
+        </div>
+      </div>
+      <RecordPreview />
+    </div>
+  </section>
+
+  <section class="bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">Data on the lattice</h2>
+      <ul class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+        {
+          dataTypes.map((d) => (
+            <li class="rounded-xl border border-ink/8 bg-paper px-4 py-3 text-sm">{d}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">Use cases</h2>
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {
+          uses.map((u) => (
+            <article class="rounded-2xl border border-ink/8 bg-cream p-6">
+              <h3 class="font-medium">{u.title}</h3>
+              <p class="mt-2 text-sm text-ink/65">{u.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Trust />
+  <CTA />
+</Base>

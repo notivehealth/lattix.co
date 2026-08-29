@@ -1,0 +1,64 @@
+---
+import Button from './Button.astro';
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lede: string;
+  image?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+  showCtas?: boolean;
+}
+const {
+  eyebrow,
+  title,
+  lede,
+  image,
+  primaryHref = '/contact',
+  primaryLabel = 'Book a demo',
+  secondaryHref,
+  secondaryLabel,
+  showCtas = true,
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-ink text-cream">
+  {
+    image ? (
+      <img
+        src={image}
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover opacity-35"
+      />
+    ) : (
+      <div class="pointer-events-none absolute inset-0 bg-lattice-dots opacity-50" />
+    )
+  }
+  <div class:list={['absolute inset-0', image ? 'bg-gradient-to-b from-ink/40 via-ink/70 to-ink' : 'bg-gradient-to-b from-ink/20 to-ink/80']}></div>
+  <div class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:py-32">
+    {eyebrow && (
+      <p class="mb-5 text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">{eyebrow}</p>
+    )}
+    <h1 class="max-w-4xl font-serif text-4xl leading-[1.12] tracking-tight text-balance sm:text-6xl">
+      {title}
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg text-mist text-pretty sm:text-xl">{lede}</p>
+    {
+      showCtas && (
+        <div class="mt-8 flex flex-wrap gap-3">
+          <Button href={primaryHref} variant="primary" size="lg">
+            {primaryLabel}
+          </Button>
+          {secondaryHref && secondaryLabel && (
+            <Button href={secondaryHref} variant="secondary" size="lg">
+              {secondaryLabel}
+            </Button>
+          )}
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>

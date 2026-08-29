@@ -1,0 +1,77 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Stats from '../../components/Stats.astro';
+import CTA from '../../components/CTA.astro';
+import Trust from '../../components/Trust.astro';
+---
+
+<Base
+  title="Payers & payviders"
+  description="A national payer-provider exchange. Aggregated, actionable, accessible clinical data for care management, quality, and risk."
+>
+  <PageHero
+    eyebrow="Markets · Payers"
+    title="A holistic member record for care, quality, and risk"
+    lede="Lattix unlocks a complete view of each member so payers and payviders can optimize care management and risk adjustment — and lower the cost of care."
+    image="/images/network-city.jpg"
+  />
+
+  <section class="bg-ink px-5 py-16 text-cream sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <Stats dark />
+    </div>
+  </section>
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">Data that is aggregated, actionable, accessible</h2>
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">Unified and de-duplicated</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            Disparate sources, one FHIR record. Master patient index and a processing engine so
+            care managers are not reading the same fact three times.
+          </p>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">Power analytics</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            Structured data to measure risk. Combine aggregated clinical information with claims to
+            assess and balance risk in value-based arrangements.
+          </p>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">Know when something happens</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            ADT and clinical alerts across the lattice. Outreach after discharge, not after the
+            claim lands.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">How payers connect</h2>
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+        <article class="rounded-2xl border border-ink/8 bg-paper p-6">
+          <h3 class="font-medium">System integrations</h3>
+          <p class="mt-2 text-sm text-ink/65">Integrate with EMRs, LIS systems, and public health databases.</p>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-paper p-6">
+          <h3 class="font-medium">Data aggregation</h3>
+          <p class="mt-2 text-sm text-ink/65">Match data from multiple sources into one Lattix tenant.</p>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-paper p-6">
+          <h3 class="font-medium">Web-based access</h3>
+          <p class="mt-2 text-sm text-ink/65">Let care teams retrieve or share records electronically, without a custom app.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <Trust />
+  <CTA />
+</Base>

@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Trust from '../components/Trust.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Base
+  title="Security"
+  description="HITRUST R2, SOC 2 Type II, and HIPAA. How Lattix protects permitted health data: encryption, audit, retention, and governance."
+>
+  <PageHero
+    eyebrow="Security"
+    title="Permitted access. Ironclad controls."
+    lede="We maintain a data security, privacy, and governance program designed for the most sensitive class of information in American healthcare."
+    image="/images/lattice-close.jpg"
+    primaryLabel="Talk to security"
+  />
+
+  <Trust />
+
+  <section class="bg-paper px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="font-serif text-4xl tracking-tight">How we protect the lattice</h2>
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        {
+          [
+            {
+              t: 'Encryption',
+              d: 'In transit and at rest. Keys managed under production controls. No patient data on laptops as a matter of policy.',
+            },
+            {
+              t: 'Perimeter and tenancy',
+              d: 'Extensive perimeter security, penetration prevention, and logical separation between tenants and purposes of use.',
+            },
+            {
+              t: 'Audit',
+              d: 'Every access logged. Every fact traceable to its source. Retention aligned to HIPAA and contractual requirements.',
+            },
+            {
+              t: 'Workforce',
+              d: 'Background checks, least privilege, and ongoing training. Compliance is a practice, not a poster.',
+            },
+            {
+              t: 'Purposes of use',
+              d: 'Treatment, Individual Access, payment, and operations are enforced in product — not only in the BAA.',
+            },
+            {
+              t: 'Vendors',
+              d: 'Subprocessors are reviewed, contracted, and listed. We do not improvise with health data.',
+            },
+          ].map((i) => (
+            <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+              <h3 class="font-medium">{i.t}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/65">{i.d}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="font-serif text-3xl tracking-tight">Request documentation</h2>
+      <p class="mt-4 text-ink/70">
+        BAAs, SOC 2 reports, HITRUST letters, and subprocessors are available to customers and
+        serious prospects under NDA. Email
+        <a class="underline decoration-signal underline-offset-4" href="mailto:security@lattix.co">security@lattix.co</a>
+        or use the contact form.
+      </p>
+    </div>
+  </section>
+
+  <CTA />
+</Base>
