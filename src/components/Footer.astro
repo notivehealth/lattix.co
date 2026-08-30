@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { products, markets, site } from '../data/site';
+import { products, markets } from '../data/site';
 ---
 
 <footer class="bg-ink text-cream">
@@ -12,12 +12,6 @@ import { products, markets, site } from '../data/site';
           The lattice for health data interchange. Labs, imaging, and the clinical record —
           one connection, orders and results in your systems.
         </p>
-        <a
-          href={`mailto:${site.email}`}
-          class="mt-5 inline-block text-sm text-signal hover:text-cream"
-        >
-          {site.email}
-        </a>
       </div>
       <div>
         <p class="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-gold">Product</p>

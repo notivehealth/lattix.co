@@ -41,7 +41,7 @@ export default {
 
 async function handleContact(request: Request, env: Env): Promise<Response> {
   if (!env.RESEND_API_KEY) {
-    return json({ error: 'Mail is not configured yet. Write us at hello@lattix.co.' }, 503);
+    return json({ error: 'Mail is not configured yet. Try again in a moment.' }, 503);
   }
 
   let body: Record<string, unknown>;
@@ -97,7 +97,7 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
   if (!res.ok) {
     const detail = (await res.text()).slice(0, 500);
     console.error('resend_failed', res.status, detail);
-    return json({ error: 'Could not send just now. Email hello@lattix.co and we will pick it up.' }, 502);
+    return json({ error: 'Could not send just now. Try again in a moment.' }, 502);
   }
 
   return json({ ok: true }, 200);

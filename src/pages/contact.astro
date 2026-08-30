@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { site } from '../data/site';
 
 const roles = ['Lab or imaging', 'EHR', 'Cash-pay / direct care', 'Digital health', 'Other'];
 ---
@@ -18,7 +17,7 @@ const roles = ['Lab or imaging', 'EHR', 'Cash-pay / direct care', 'Digital healt
   />
 
   <section class="bg-paper px-5 py-20 sm:px-8">
-    <div class="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1fr_280px]">
+    <div class="mx-auto max-w-3xl">
       <form id="contact-form" class="relative rounded-3xl border border-ink/8 bg-cream p-6 sm:p-10" novalidate>
         <div class="grid gap-5 sm:grid-cols-2">
           <label class="block text-sm">
@@ -60,21 +59,6 @@ const roles = ['Lab or imaging', 'EHR', 'Cash-pay / direct care', 'Digital healt
         </button>
         <p id="form-status" class="mt-4 hidden text-sm" role="status"></p>
       </form>
-
-      <aside class="space-y-8">
-        <div>
-          <p class="text-[0.7rem] uppercase tracking-[0.16em] text-gold">Email</p>
-          <a href={`mailto:${site.email}`} class="mt-2 block text-lg">{site.email}</a>
-        </div>
-        <div>
-          <p class="text-[0.7rem] uppercase tracking-[0.16em] text-gold">Security</p>
-          <a href="mailto:security@lattix.co" class="mt-2 block">security@lattix.co</a>
-        </div>
-        <div>
-          <p class="text-[0.7rem] uppercase tracking-[0.16em] text-gold">Press</p>
-          <a href="mailto:press@lattix.co" class="mt-2 block">press@lattix.co</a>
-        </div>
-      </aside>
     </div>
   </section>
 </Base>
@@ -113,13 +97,13 @@ const roles = ['Lab or imaging', 'EHR', 'Cash-pay / direct care', 'Digital healt
       });
       const out = (await res.json().catch(() => ({}))) as { error?: string };
       if (!res.ok) {
-        setStatus(out.error || 'Could not send. Email hello@lattix.co.', false);
+        setStatus(out.error || 'Could not send. Try again in a moment.', false);
         return;
       }
       form.reset();
       setStatus('Received. We will write back shortly.', true);
     } catch {
-      setStatus('Could not send. Email hello@lattix.co.', false);
+      setStatus('Could not send. Try again in a moment.', false);
     } finally {
       if (submit) submit.disabled = false;
     }
