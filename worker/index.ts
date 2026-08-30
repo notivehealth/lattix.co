@@ -95,6 +95,8 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
   });
 
   if (!res.ok) {
+    const detail = (await res.text()).slice(0, 500);
+    console.error('resend_failed', res.status, detail);
     return json({ error: 'Could not send just now. Email hello@lattix.co and we will pick it up.' }, 502);
   }
 
