@@ -26,7 +26,7 @@ The site is pre-rendered. Wrangler serves `dist/` as static assets.
 bun run deploy
 ```
 
-`wrangler.jsonc` attaches `lattix.co` (custom domain) and `www.lattix.co` (zone route) on deploy.
+`wrangler.jsonc` attaches `lattix.co` (custom domain) and `www.lattix.co` (zone route). The Worker 301s `www` to the apex.
 
 For CI, use [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) with:
 
@@ -36,4 +36,10 @@ For CI, use [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/bui
 
 ## Contact form
 
-The contact page composes a `mailto:` to `hello@lattix.co`. Wire it to a Worker, Turnstile, or a form provider when you are ready.
+`POST /api/contact` sends through [Resend](https://resend.com). Store the API key as a Worker secret (not in git):
+
+```bash
+printf '%s' 're_…' | bunx wrangler secret put RESEND_API_KEY
+```
+
+Verify `lattix.co` in Resend so `hello@lattix.co` can send. `CONTACT_TO` / `CONTACT_FROM` live in `wrangler.jsonc`.

@@ -1,13 +1,21 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lattix",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-08-29",
+  "workers_dev": false,
   "routes": [
     { "pattern": "lattix.co", "custom_domain": true },
     { "pattern": "www.lattix.co/*", "zone_name": "lattix.co" }
   ],
+  "vars": {
+    "CONTACT_TO": "hello@lattix.co",
+    "CONTACT_FROM": "Lattix <hello@lattix.co>"
+  },
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
   }
 }
