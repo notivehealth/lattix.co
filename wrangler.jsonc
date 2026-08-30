@@ -10,7 +10,7 @@
   ],
   "vars": {
     "CONTACT_TO": "dillon@lattix.co",
-    "CONTACT_FROM": "Lattix <dillon@lattix.co>"
+    "CONTACT_FROM": "Lattix <hello@notivehealth.com>"
   },
   "assets": {
     "directory": "./dist",
