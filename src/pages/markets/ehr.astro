@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import Stats from '../../components/Stats.astro';
 import CTA from '../../components/CTA.astro';
 import Trust from '../../components/Trust.astro';
 import Button from '../../components/Button.astro';
@@ -9,61 +8,59 @@ import Button from '../../components/Button.astro';
 
 <Base
   title="EHR interoperability"
-  description="Enable providers to participate in nationwide TEFCA exchange. Embed Lattix clinical records, lab ordering, and alerts in your EHR."
+  description="Electronic lab and imaging ordering for cash-pay and direct-care EHRs. One Lattix connection — not a five-figure interface project to start."
 >
   <PageHero
     eyebrow="Markets · EHRs"
-    title="Participate in nationwide exchange without building a network"
-    lede="Enable providers to join government-endorsed data exchange, maximize connectivity, and capture future incentives — while you stay focused on the EHR."
+    title="Cash-pay clinics still need labs. They should not need a health-system project to order them."
+    lede="More clinicians are leaving insurance. Embed diagnostic ordering and file structured results — without a five-figure start or a six-month interface for every partner."
     image="/images/hero-lattice.jpg"
   />
-
-  <section class="bg-ink px-5 py-16 text-cream sm:px-8">
-    <div class="mx-auto max-w-7xl">
-      <Stats
-        dark
-        items={[
-          { value: '220M+', label: 'Patients' },
-          { value: '120K+', label: 'Care sites' },
-          { value: '120+', label: 'Lab & imaging vendors' },
-          { value: '92%', label: 'U.S. coverage' },
-        ]}
-      />
-    </div>
-  </section>
 
   <section class="bg-paper px-5 py-24 sm:px-8">
     <div class="mx-auto max-w-7xl">
       <h2 class="font-serif text-4xl tracking-tight sm:text-5xl">What EHRs start with</h2>
       <div class="mt-12 grid gap-5 md:grid-cols-3">
         <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">Govern your own HIN</h3>
+          <h3 class="font-medium">Diagnostics in the product</h3>
           <p class="mt-3 text-sm text-ink/65">
-            Deploy a data-sharing ecosystem on our master patient index and record locator. Scale
-            connectivity without standing up interchange infrastructure.
-          </p>
-          <Button href="/platform" variant="ghost" size="sm" class="mt-5">Platform</Button>
-        </article>
-        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">TEFCA and state DxF</h3>
-          <p class="mt-3 text-sm text-ink/65">
-            Participate in nationwide TEFCA exchange and California’s Data Exchange Framework
-            through Lattix. Maximize real-time retrieval for the providers you sell to.
-          </p>
-          <Button href="/products/network" variant="ghost" size="sm" class="mt-5">Network</Button>
-        </article>
-        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">Automate diagnostics</h3>
-          <p class="mt-3 text-sm text-ink/65">
-            Avoid costly lab-by-lab interfaces. Centralize diagnostic ordering with national labs
-            and imaging centers, including the largest reference vendors.
+            Orders and results inside the EHR clinicians already use. Compendiums, routing, and
+            filing are the interchange’s problem.
           </p>
           <Button href="/products/diagnostics" variant="ghost" size="sm" class="mt-5">Diagnostics</Button>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">The chart as a payload</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            File a de-duplicated FHIR record from organizations on the lattice. No second viewer.
+            No fax pile at intake.
+          </p>
+          <Button href="/products/clinical-record" variant="ghost" size="sm" class="mt-5">Clinical Record</Button>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">Coverage that compounds</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            Regional and specialty partners now. National diagnostic networks on the same
+            integration when they join. Your customers do not wait for a second stack.
+          </p>
+          <Button href="/products/network" variant="ghost" size="sm" class="mt-5">Network</Button>
         </article>
       </div>
     </div>
   </section>
 
+  <section class="bg-cream px-5 py-24 sm:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="font-serif text-3xl tracking-tight">Built by people who still run an EHR</h2>
+      <p class="mt-5 text-lg text-ink/70">
+        Lattix comes out of production cash-pay and direct-care practice — documentation,
+        e-prescribing, lab and imaging loops, the whole unglamorous stack. We productized the
+        interchange because those clinics still need diagnostics, and the national projects are
+        not built for them.
+      </p>
+    </div>
+  </section>
+
   <Trust />
-  <CTA title="Make your EHR more valuable" lede="Embed the lattice. Your customers get national records, labs, imaging, and alerts." />
+  <CTA title="Make the EHR more valuable" lede="Connect the lattice. Your customers get electronic labs, imaging, and a chart payload — in the product they already use." />
 </Base>

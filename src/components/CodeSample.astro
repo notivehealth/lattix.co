@@ -1,15 +1,16 @@
 ---
-const snippet = `const res = await fetch("https://api.lattix.co/fhir/Patient", {
-  method: "GET",
+const snippet = `const res = await fetch("https://api.lattix.co/fhir/ServiceRequest", {
+  method: "POST",
   headers: {
     Authorization: "Bearer <token>",
-    Accept: "application/fhir+json",
+    "Content-Type": "application/fhir+json",
   },
+  body: JSON.stringify(order),
 });
 
-const bundle = await res.json();
-// Longitudinal, de-duplicated FHIR resources
-console.log(bundle.entry.length);`;
+const created = await res.json();
+// Electronic order on the lattice
+console.log(created.id);`;
 ---
 
 <div class="overflow-hidden rounded-2xl border border-white/10 bg-[#0b1018] shadow-2xl">
@@ -19,7 +20,7 @@ console.log(bundle.entry.length);`;
       <span class="h-2.5 w-2.5 rounded-full bg-white/20"></span>
       <span class="h-2.5 w-2.5 rounded-full bg-white/20"></span>
     </div>
-    <p class="font-mono text-[11px] text-mist">GET /fhir/Patient</p>
+    <p class="font-mono text-[11px] text-mist">POST /fhir/ServiceRequest</p>
   </div>
   <pre class="overflow-x-auto p-5 text-[13px] leading-relaxed text-cream/90"><code>{snippet}</code></pre>
 </div>

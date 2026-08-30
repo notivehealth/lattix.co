@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 import Stats from '../components/Stats.astro';
-import RecordPreview from '../components/RecordPreview.astro';
+import ExchangePreview from '../components/ExchangePreview.astro';
 import CodeSample from '../components/CodeSample.astro';
 import CTA from '../components/CTA.astro';
 import Trust from '../components/Trust.astro';
@@ -22,15 +22,15 @@ import { markets, pipeline, products, site } from '../data/site';
         Health data interchange
       </p>
       <h1 class="max-w-4xl font-serif text-5xl leading-[1.08] tracking-tight text-balance sm:text-7xl">
-        Every patient record, on one lattice.
+        Labs, imaging, and the chart. One lattice.
       </h1>
       <p class="mt-7 max-w-2xl text-lg text-mist text-pretty sm:text-xl">
-        Lattix is the national interchange for labs, imaging, and the complete clinical record.
-        FHIR-native APIs. Nationwide exchange. Built for TEFCA and state data-sharing frameworks.
+        Lattix is the interchange for electronic orders, structured results, and the clinical
+        record. FHIR-native APIs. One connection instead of a new interface for every partner.
       </p>
       <div class="mt-10 flex flex-wrap gap-3">
         <Button href="/contact" variant="primary" size="lg">Talk to an expert</Button>
-        <Button href="/platform" variant="secondary" size="lg">Explore the platform</Button>
+        <Button href="/products/diagnostics" variant="secondary" size="lg">Explore diagnostics</Button>
       </div>
       <div class="mt-16 max-w-4xl border-t border-white/10 pt-10">
         <Stats dark />
@@ -40,15 +40,28 @@ import { markets, pipeline, products, site } from '../data/site';
 
   <section class="bg-paper px-5 py-20 sm:px-8">
     <div class="mx-auto max-w-7xl">
-      <p class="text-center text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">
-        Trusted by leaders in healthcare
+      <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">The problem we were built for</p>
+      <h2 class="mt-4 max-w-3xl font-serif text-4xl tracking-tight text-balance sm:text-5xl">
+        Diagnostic connectivity is gated, slow, and priced for someone else.
+      </h2>
+      <p class="mt-5 max-w-2xl text-lg text-ink/70 text-pretty">
+        National reference laboratories, imaging networks, and e-prescribing rails take deep
+        pockets and a long implementation. Independent labs still live on fax. Cash-pay and
+        direct-care clinics — the practices leaving insurance — get priced out of the good
+        connections. Lattix is the lattice they can actually join, and the path to the rest of
+        the market without starting over.
       </p>
-      <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div class="mt-12 grid gap-4 sm:grid-cols-3">
         {
-          ['Northstar Health', 'Helix EHR', 'Summit Payor', 'Viridian Care'].map((name) => (
-            <div class="flex h-16 items-center justify-center rounded-xl border border-ink/8 bg-cream text-sm font-medium tracking-tight text-ink/50">
-              {name}
-            </div>
+          [
+            { t: 'Gated', d: 'The largest diagnostic networks qualify on volume, diligence, and time you do not have on day one.' },
+            { t: 'Regional', d: 'Coverage is a patchwork of draw sites, specialty labs, and imaging groups that do not share a rulebook.' },
+            { t: 'Expensive', d: 'The good connections are priced like a health-system project — five figures before the first order, then a quarter of engineering per partner.' },
+          ].map((item) => (
+            <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+              <h3 class="text-lg font-medium tracking-tight">{item.t}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink/65">{item.d}</p>
+            </article>
           ))
         }
       </div>
@@ -60,11 +73,11 @@ import { markets, pipeline, products, site } from '../data/site';
       <div class="max-w-2xl">
         <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">The value we add</p>
         <h2 class="mt-4 font-serif text-4xl tracking-tight text-balance sm:text-5xl">
-          Not just the data. The operated pipeline.
+          Not just a pipe. The operated interchange.
         </h2>
         <p class="mt-5 text-lg text-ink/70 text-pretty">
-          Our value is not “we have the data.” It is the pipeline that turns fragmented, duplicated,
-          multi-source records into one trustworthy chart.
+          Our value is the pipeline that turns orders, results, and records from many formats into
+          one trustworthy payload — delivered to the systems you already run.
         </p>
       </div>
       <ol class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -78,38 +91,30 @@ import { markets, pipeline, products, site } from '../data/site';
           ))
         }
       </ol>
-      <p class="mt-10 max-w-2xl text-ink/70">
-        And the moment something changes:{' '}
-        <a href="/products/alerts" class="font-medium text-ink underline decoration-signal underline-offset-4">
-          Clinical Alerts
-        </a>
-        {' '}listen across network activity, not just the hospital in front of you.
-      </p>
     </div>
   </section>
 
   <section class="bg-ink px-5 py-24 text-cream sm:px-8">
     <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
       <div>
-        <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Clinical Record</p>
+        <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Diagnostics</p>
         <h2 class="mt-4 font-serif text-4xl tracking-tight text-balance sm:text-5xl">
-          The patient’s whole story, assembled.
+          Order on the lattice. File the result.
         </h2>
         <p class="mt-5 text-lg text-mist text-pretty">
-          Important clinical information is missing in nearly one in seven visits. Lattix retrieves,
-          matches, and normalizes records from nationwide EHRs so care teams see medications, labs,
-          imaging, notes, and encounters in one place.
+          Place lab and imaging orders electronically. Receive structured results. Write them into
+          the chart you already operate — without a six-month project for each diagnostic partner.
         </p>
         <ul class="mt-8 space-y-3 text-sm text-cream/85">
-          <li class="flex gap-3"><span class="text-signal">→</span> Master Patient Index with heuristic matching</li>
-          <li class="flex gap-3"><span class="text-signal">→</span> Record locator across care sites you did not know to query</li>
-          <li class="flex gap-3"><span class="text-signal">→</span> FHIR resources plus C-CDA, HL7, X12, and Direct</li>
+          <li class="flex gap-3"><span class="text-signal">→</span> Regional, specialty, and independent laboratories</li>
+          <li class="flex gap-3"><span class="text-signal">→</span> Imaging centers on the same order-and-result loop</li>
+          <li class="flex gap-3"><span class="text-signal">→</span> HL7 v2, FHIR, SFTP — whatever the partner already speaks</li>
         </ul>
         <div class="mt-8">
-          <Button href="/products/clinical-record" variant="primary">See Clinical Record</Button>
+          <Button href="/products/diagnostics" variant="primary">See Diagnostics</Button>
         </div>
       </div>
-      <RecordPreview />
+      <ExchangePreview />
     </div>
   </section>
 
@@ -117,26 +122,28 @@ import { markets, pipeline, products, site } from '../data/site';
     <div class="mx-auto max-w-7xl">
       <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div class="max-w-2xl">
-          <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Diagnostics</p>
+          <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Clinical Record</p>
           <h2 class="mt-4 font-serif text-4xl tracking-tight text-balance sm:text-5xl">
-            Labs and imaging, one interface.
+            The chart, exchanged as data.
           </h2>
           <p class="mt-5 text-lg text-ink/70 text-pretty">
-            Send lab and imaging orders electronically to any connected diagnostic vendor and receive
-            structured results — without a six-month integration for each lab.
+            Medications, problems, labs, imaging, and notes — a de-duplicated FHIR payload from the
+            organizations on the lattice, delivered into your EHR or product. Not another viewer
+            to log into.
           </p>
         </div>
-        <Button href="/products/diagnostics" variant="ghost">Explore Diagnostics</Button>
+        <Button href="/products/clinical-record" variant="ghost">See Clinical Record</Button>
       </div>
       <div class="mt-12 grid gap-6 lg:grid-cols-2">
         <article class="relative overflow-hidden rounded-3xl">
           <img src="/images/lab.jpg" alt="Clinical laboratory analyzer and specimen racks" class="h-80 w-full object-cover" />
           <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
           <div class="absolute inset-x-0 bottom-0 p-7 text-cream">
-            <h3 class="font-serif text-2xl">Laboratory network</h3>
+            <h3 class="font-serif text-2xl">Laboratory interchange</h3>
             <p class="mt-2 max-w-md text-sm text-mist">
-              National reference labs, health-system labs, regional and specialty vendors. 6,200+
-              patient service centers. More than 90% of the U.S. lives within 20 miles of one.
+              Compendiums, electronic orders, and structured results. Independent and specialty labs
+              first — national reference laboratories on the same interface as volume and diligence
+              land.
             </p>
           </div>
         </article>
@@ -146,8 +153,8 @@ import { markets, pipeline, products, site } from '../data/site';
           <div class="absolute inset-x-0 bottom-0 p-7 text-cream">
             <h3 class="font-serif text-2xl">Imaging exchange</h3>
             <p class="mt-2 max-w-md text-sm text-mist">
-              Electronic imaging orders and results alongside the lab workflow. Radiology, cardiology,
-              and specialty studies in the same interchange.
+              Electronic imaging orders and reports on the same lattice as the lab workflow.
+              Radiology, cardiology, and specialty studies without a separate stack.
             </p>
           </div>
         </article>
@@ -159,9 +166,9 @@ import { markets, pipeline, products, site } from '../data/site';
     <div class="mx-auto max-w-7xl">
       <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Who we serve</p>
       <h2 class="mt-4 max-w-2xl font-serif text-4xl tracking-tight text-balance sm:text-5xl">
-        A complete, trustworthy record. You do not have to build any of it.
+        Built for cash-pay care, and the labs that want those orders.
       </h2>
-      <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-12 grid gap-4 md:grid-cols-3">
         {
           markets.map((m) => (
             <a
@@ -183,30 +190,30 @@ import { markets, pipeline, products, site } from '../data/site';
     <img src="/images/network-city.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-30" />
     <div class="absolute inset-0 bg-ink/70"></div>
     <div class="relative mx-auto max-w-7xl">
-      <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Nationwide network</p>
+      <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">The lattice</p>
       <h2 class="mt-4 max-w-3xl font-serif text-4xl tracking-tight text-balance sm:text-5xl">
-        Universal data access. Compliant at our core.
+        Connect once. Coverage compounds.
       </h2>
       <div class="mt-12 grid gap-5 md:grid-cols-3">
         <a href="/products/network" class="rounded-2xl border border-white/10 bg-ink/60 p-7 backdrop-blur">
-          <h3 class="text-lg font-medium">Government frameworks</h3>
+          <h3 class="text-lg font-medium">A network that grows in place</h3>
           <p class="mt-2 text-sm leading-relaxed text-mist">
-            Participate in TEFCA and state data exchange — including California’s DxF — through a
-            single Lattix connection.
+            Regional and specialty partners first. National laboratories and imaging networks on the
+            same technical integration when volume and diligence line up.
           </p>
         </a>
         <a href="/security" class="rounded-2xl border border-white/10 bg-ink/60 p-7 backdrop-blur">
-          <h3 class="text-lg font-medium">Powerful security</h3>
+          <h3 class="text-lg font-medium">Security that survives diligence</h3>
           <p class="mt-2 text-sm leading-relaxed text-mist">
-            HITRUST R2, SOC 2 Type II, and HIPAA. Encryption, audit, retention, and governance
-            designed for permitted health data.
+            HIPAA, BAAs, encryption, tenancy, and audit. The control set national partners will ask
+            for — built in from the start.
           </p>
         </a>
         <a href="/about" class="rounded-2xl border border-white/10 bg-ink/60 p-7 backdrop-blur">
-          <h3 class="text-lg font-medium">Interoperability, operated</h3>
+          <h3 class="text-lg font-medium">Interfaces, operated</h3>
           <p class="mt-2 text-sm leading-relaxed text-mist">
-            We run the matching, translation, and delivery so your team can stay on product, care,
-            and coverage — not interfaces.
+            Built by people who have shipped healthcare interfaces and still run them in production
+            for outpatient care. The lattice is that work, productized.
           </p>
         </a>
       </div>
@@ -217,14 +224,14 @@ import { markets, pipeline, products, site } from '../data/site';
     <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
       <div>
         <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Designed for developers</p>
-        <h2 class="mt-4 font-serif text-4xl tracking-tight sm:text-5xl">FHIR-native. Production-ready.</h2>
+        <h2 class="mt-4 font-serif text-4xl tracking-tight sm:text-5xl">FHIR-native. Production-shaped.</h2>
         <p class="mt-5 text-lg text-ink/70">
-          Integrate the lattice into your EHR, digital health app, or payer platform with versioned
-          APIs, a sandbox, and the same resources you already know.
+          Integrate the lattice into an EHR or digital health product with versioned APIs, a sandbox,
+          and the resources you already know.
         </p>
         <ul class="mt-6 grid gap-2 text-sm text-ink/75 sm:grid-cols-2">
           {
-            ['Software + API', 'Sandbox tenant', 'Sample code', 'Workflow diagrams', 'Versioned changes', 'Metadata support'].map(
+            ['FHIR REST APIs', 'Sandbox tenant', 'Sample code', 'Order and result workflows', 'Versioned changes', 'HL7 under the hood'].map(
               (item) => (
                 <li class="flex items-center gap-2">
                   <span class="h-1.5 w-1.5 rounded-full bg-signal-2" />
@@ -245,7 +252,7 @@ import { markets, pipeline, products, site } from '../data/site';
   <section class="bg-cream px-5 py-20 sm:px-8">
     <div class="mx-auto max-w-7xl">
       <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">The product suite</p>
-      <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {
           products.map((p) => (
             <a href={p.href} class="rounded-2xl border border-ink/8 bg-paper p-6 transition hover:border-signal/40">

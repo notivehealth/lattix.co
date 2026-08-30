@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import Stats from '../../components/Stats.astro';
 import CodeSample from '../../components/CodeSample.astro';
 import CTA from '../../components/CTA.astro';
 import Trust from '../../components/Trust.astro';
@@ -10,48 +9,42 @@ import Button from '../../components/Button.astro';
 
 <Base
   title="Digital health"
-  description="Ship on clean, ready-to-use clinical data. Retrieve records, automate lab and imaging orders, and stay out of the interoperability business."
+  description="Place lab and imaging orders and receive structured results inside your product. FHIR APIs, a sandbox, no six-month interface roadmap."
 >
   <PageHero
     eyebrow="Markets · Digital health"
-    title="Ship clinical features without becoming an interoperability company"
-    lede="Retrieve medical data from the lattice, automate lab and imaging ordering, and power value-based workflows — in weeks, not an integration roadmap."
+    title="Ship diagnostics without becoming an interoperability company"
+    lede="Place orders, file results, and pull a FHIR chart payload — in weeks, not an integration roadmap."
     image="/images/hero-lattice.jpg"
   />
 
-  <section class="bg-ink px-5 py-16 text-cream sm:px-8">
-    <div class="mx-auto max-w-7xl">
-      <Stats dark />
-    </div>
-  </section>
-
   <section class="bg-paper px-5 py-24 sm:px-8">
     <div class="mx-auto max-w-7xl">
-      <h2 class="font-serif text-4xl tracking-tight">Get in touch today to</h2>
+      <h2 class="font-serif text-4xl tracking-tight">What product teams start with</h2>
       <div class="mt-12 grid gap-5 md:grid-cols-3">
         <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">Retrieve medical data</h3>
+          <h3 class="font-medium">Automate lab and imaging orders</h3>
           <p class="mt-3 text-sm text-ink/65">
-            Telemedicine platforms need records in front of the visit. Collect a patient’s history
-            electronically from most EHRs — API or web app.
-          </p>
-          <Button href="/products/clinical-record" variant="ghost" size="sm" class="mt-5">Clinical Record</Button>
-        </article>
-        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">Automate lab & imaging orders</h3>
-          <p class="mt-3 text-sm text-ink/65">
-            Place orders and get results from a vast diagnostic network. Avoid complex integrations
-            and go live in weeks.
+            Virtual care still needs bloodwork and studies. Place the order and get a structured
+            result without staffing an HL7 team.
           </p>
           <Button href="/products/diagnostics" variant="ghost" size="sm" class="mt-5">Diagnostics</Button>
         </article>
         <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">Succeed in value-based care</h3>
+          <h3 class="font-medium">A history before the visit</h3>
           <p class="mt-3 text-sm text-ink/65">
-            Power advanced clinical functionality without the technical burden. Review histories,
-            medications, and risk before the encounter.
+            Pull a de-duplicated FHIR payload from organizations on the lattice into the product
+            you already sell.
           </p>
-          <Button href="/markets/value-based-care" variant="ghost" size="sm" class="mt-5">Value-based care</Button>
+          <Button href="/products/clinical-record" variant="ghost" size="sm" class="mt-5">Clinical Record</Button>
+        </article>
+        <article class="rounded-2xl border border-ink/8 bg-cream p-7">
+          <h3 class="font-medium">Stay on the product</h3>
+          <p class="mt-3 text-sm text-ink/65">
+            Versioned FHIR APIs, a sandbox, and the transports handled under the hood. Your
+            engineers stay on what makes you distinct.
+          </p>
+          <Button href="/developers" variant="ghost" size="sm" class="mt-5">Developers</Button>
         </article>
       </div>
     </div>
@@ -62,8 +55,7 @@ import Button from '../../components/Button.astro';
       <div>
         <h2 class="font-serif text-4xl tracking-tight">An API, not a science project</h2>
         <p class="mt-5 text-mist">
-          FHIR resources, a sandbox, and versioned changes. Your engineers stay on the product that
-          makes you distinct.
+          ServiceRequest out. DiagnosticReport back. The same resources you already know.
         </p>
         <div class="mt-8">
           <Button href="/developers" variant="primary">Developer docs</Button>

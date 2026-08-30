@@ -6,7 +6,7 @@ import CTA from '../components/CTA.astro';
 const values = [
   {
     title: 'Precision',
-    body: 'Matching, translation, and reconciliation are the product. Close enough is how people get the wrong chart.',
+    body: 'Matching, translation, and routing are the product. Close enough is how the wrong lab gets the order.',
   },
   {
     title: 'Stewardship',
@@ -14,25 +14,37 @@ const values = [
   },
   {
     title: 'Interconnect',
-    body: 'A lattice only works if every node can find the others. We would rather connect a competitor’s lab than leave a gap in the record.',
+    body: 'A lattice only works if every node can find the others. We would rather connect a competitor’s lab than leave a clinic on fax.',
   },
 ];
 
 const timeline = [
-  { y: 'Foundation', d: 'Started as diagnostic data aggregation for labs that were drowning in peer-to-peer interfaces.' },
-  { y: 'Platform', d: 'Turned that connectivity into a FHIR interoperability platform: MPI, locator, processing, chart.' },
-  { y: 'Network', d: 'Extended the lattice across clinical records, imaging, alerts, and patient-mediated access.' },
-  { y: 'Exchange', d: 'Aligned the same pipes with TEFCA and state data-sharing frameworks so customers connect once.' },
+  {
+    y: 'Interfaces',
+    d: 'Years of shipping healthcare interfaces — labs, imaging, e-prescribing rails, the unglamorous HL7 that actually moves an order.',
+  },
+  {
+    y: 'Production EHR',
+    d: 'Ran that stack in outpatient care. Watched clinics wait on national projects they could not qualify for, and independent labs lose the order.',
+  },
+  {
+    y: 'The lattice',
+    d: 'Productized the interchange: one connection, orders and results, a FHIR payload instead of a mailbox of sample messages.',
+  },
+  {
+    y: 'What compounds',
+    d: 'Regional and specialty partners first. National networks on the same pipes when volume and diligence land. The brand and the coverage arrive together.',
+  },
 ];
 ---
 
 <Base
   title="About"
-  description="Lattix is the national lattice for health data — labs, imaging, and the complete clinical record."
+  description="Lattix is the lattice for health data interchange — labs, imaging, and the clinical record — built by people who have shipped healthcare interfaces and still run them in production."
 >
   <PageHero
     eyebrow="About Lattix"
-    title="Improving outcomes with organized, actionable health data"
+    title="The interchange we were tired of not having"
     lede="It is a jungle out there in health information technology. Lattix is the lattice that holds the nodes together."
     image="/images/lattice-close.jpg"
     primaryHref="/contact"
@@ -43,13 +55,15 @@ const timeline = [
     <div class="mx-auto max-w-3xl text-lg leading-relaxed text-ink/75">
       <p>
         A lattice is a structure of repeating connections. That is the job: not a single heroic
-        interface, but a network dense enough that a patient’s story can be found, matched, and
-        delivered wherever care happens.
+        interface, but a network dense enough that an order can leave an EHR, land at a laboratory
+        or imaging center, and come back as a structured result — and that the next partner reuses
+        the same pipes.
       </p>
       <p class="mt-6">
-        Lattix is an interoperability platform providing permitted access to actionable patient
-        data. Customers use it to improve outcomes, streamline workflows, and create a more
-        equitable health system — a single source of truth instead of a fax machine with an API.
+        Lattix comes from people who have built those interfaces for years and still operate them
+        in cash-pay and direct-care practice. We got tired of watching those clinics wait on a
+        national project they could not qualify for, and watching independent labs lose work
+        because nobody would staff the connection. The interchange is now its own product.
       </p>
     </div>
   </section>
@@ -86,5 +100,5 @@ const timeline = [
     </div>
   </section>
 
-  <CTA title="Work with us" lede="Interoperability people, clinicians, and operators — we would like to hear from you." />
+  <CTA title="Work with us" lede="Labs, imaging groups, EHR teams, interoperability people — we would like to hear from you." />
 </Base>

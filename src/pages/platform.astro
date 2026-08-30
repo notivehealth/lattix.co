@@ -7,40 +7,40 @@ import { products } from '../data/site';
 
 const features = [
   {
-    title: 'Master Patient Index',
-    body: 'Scan multiple systems to identify the right person using heuristic matching, referential data, and demographics — even when identifiers never quite agree.',
+    title: 'Partner connectivity',
+    body: 'HL7 v2, FHIR, SFTP, and MLLP — the transports diagnostic partners and EHRs already run. One onboarding, not a custom project for every new logo.',
   },
   {
-    title: 'Record Locator Services',
-    body: 'Index where records live and use those locations to make the next query faster. Together, MPI and RLS make discovery efficient at national scale.',
+    title: 'Identity',
+    body: 'Match the person across systems when names, MRNs, and birthdates never quite agree. Heuristic matching on demographics, not a hope that everyone uses the same identifier.',
   },
   {
-    title: 'Data processing engine',
-    body: 'Aggregate, de-duplicate, and normalize fragmented records into standard FHIR. The result is a longitudinal, high-quality, actionable chart.',
+    title: 'Translation',
+    body: 'Vendor catalogs, local codes, and message flavors become one FHIR record. Orders go out in the shape the lab expects. Results come back structured.',
   },
   {
-    title: 'National data repository',
-    body: 'Store raw source data and normalized FHIR resources for efficient querying, with encryption, retention, and auditing aligned to SOC 2 and HITRUST.',
+    title: 'Routing',
+    body: 'Send the order to the right laboratory or imaging center, with the compendium, ABN, and billing context that partner requires.',
   },
   {
-    title: 'Patient chart',
-    body: 'A consolidated, searchable record. Place orders, send referrals, review reports, and work the populations you treat — without leaving the chart.',
+    title: 'Delivery',
+    body: 'Push or pull the payload into the EHR or product already in use — FHIR REST, subscriptions, or files — with provenance on every fact.',
   },
   {
     title: 'FHIR REST APIs',
-    body: 'Full interoperability between FHIR and legacy standards including IHE, X12, C-CDA, document-based exchange, Direct, and HL7 v2.',
+    body: 'ServiceRequest, DiagnosticReport, Observation, ImagingStudy, Patient. Legacy interop sits under the hood so product teams stay on FHIR.',
   },
 ];
 ---
 
 <Base
   title="Platform"
-  description="The Lattix Health Interoperability Platform: master patient index, record locator, normalization, repository, chart, and FHIR APIs."
+  description="The Lattix interchange platform: connectivity, identity, translation, routing, delivery, and FHIR APIs for labs, imaging, and the clinical record."
 >
   <PageHero
     eyebrow="Platform"
-    title="A national health interoperability platform"
-    lede="Organizations need more than a series of connections. They need the data to be meaningful, and delivered when and where care happens."
+    title="The operated pipeline under every connection"
+    lede="Organizations need more than a VPN and a spec. They need orders to land, results to file, and the next partner to reuse the same integration."
     image="/images/lattice-close.jpg"
     secondaryHref="/developers"
     secondaryLabel="API reference"
@@ -49,10 +49,10 @@ const features = [
   <section class="bg-paper px-5 py-24 sm:px-8">
     <div class="mx-auto max-w-3xl">
       <p class="text-lg leading-relaxed text-ink/75">
-        Unreliable patient identifiers, information blocking, and disparate systems still leave the
-        health system disconnected. Varying standards make it worse. The Lattix platform was built to
-        ingest, normalize, and deliver actionable clinical data — and the social context around it —
-        so providers, payers, labs, and digital health teams can make timely decisions.
+        Unreliable identifiers, one-off interfaces, and a different flavor of HL7 at every lab still
+        leave outpatient care disconnected. The Lattix platform was built to connect, translate, and
+        deliver — so EHRs, labs, imaging groups, and digital health teams make the next order in
+        their own systems, not in a shared mailbox.
       </p>
     </div>
   </section>
@@ -77,7 +77,7 @@ const features = [
     <div class="mx-auto max-w-7xl">
       <h2 class="font-serif text-4xl tracking-tight">Products on the platform</h2>
       <p class="mt-4 max-w-2xl text-ink/70">
-        Every Lattix product sits on the same lattice: identity, location, processing, and delivery.
+        Every Lattix product sits on the same lattice: connect, translate, route, and deliver.
       </p>
       <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {

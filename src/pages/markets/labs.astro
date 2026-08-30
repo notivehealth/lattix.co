@@ -7,38 +7,39 @@ import Trust from '../../components/Trust.astro';
 
 <Base
   title="Labs & imaging vendors"
-  description="One interface providing access to thousands of providers. Accept orders, report results, and participate in nationwide exchange."
+  description="Accept electronic orders from EHRs on the Lattix lattice. One interface for order intake and result return — without a custom connection for every clinic."
 >
   <PageHero
     eyebrow="Markets · Labs & imaging"
-    title="One interface. Thousands of ordering providers."
-    lede="Join the Lattix diagnostic lattice to accept orders from care teams nationwide, automate result reporting, and reduce the cost of connectivity."
+    title="EHRs will not build an interface just for you. We will."
+    lede="Join the lattice once. Receive electronic orders from EHRs on the interchange, and return structured results on the same connection."
     image="/images/lab.jpg"
   />
 
   <section class="bg-paper px-5 py-24 sm:px-8">
     <div class="mx-auto max-w-7xl">
-      <h2 class="font-serif text-4xl tracking-tight sm:text-5xl">Why diagnostic vendors join</h2>
+      <h2 class="font-serif text-4xl tracking-tight sm:text-5xl">Why diagnostic partners join</h2>
       <div class="mt-12 grid gap-5 md:grid-cols-3">
         <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">Increase order volume</h3>
+          <h3 class="font-medium">Take orders you currently lose</h3>
           <p class="mt-3 text-sm text-ink/65">
-            Integrate once and let thousands of providers place orders from your lab or imaging
-            center — national, regional, or specialty.
+            Clinics order from whoever their EHR already wired. A custom HL7 project for an
+            independent lab is the project that never gets scheduled. One Lattix connection puts
+            you on the order screen.
           </p>
         </article>
         <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">Reduce technical burden</h3>
+          <h3 class="font-medium">Keep your stack</h3>
           <p class="mt-3 text-sm text-ink/65">
-            Avoid costly peer-to-peer interfaces. FHIR-native APIs replace a graveyard of one-off
-            connections.
+            Compendium, accessioning, draw sites, PACS — yours. We speak HL7 v2, FHIR, and SFTP
+            in the flavor you already run. You do not rip out a LIS to join.
           </p>
         </article>
         <article class="rounded-2xl border border-ink/8 bg-cream p-7">
-          <h3 class="font-medium">Offload vendor management</h3>
+          <h3 class="font-medium">Stop onboarding every clinic</h3>
           <p class="mt-3 text-sm text-ink/65">
-            Lattix manages downstream provider organizations so you can focus on diagnostics, not
-            onboarding every clinic that wants to order.
+            Lattix manages the care organizations on the demand side. You focus on diagnostics,
+            not a new VPN and a sample-message thread for every practice that wants to send work.
           </p>
         </article>
       </div>
@@ -49,26 +50,26 @@ import Trust from '../../components/Trust.astro';
     <img src="/images/imaging.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-25" />
     <div class="absolute inset-0 bg-ink/75"></div>
     <div class="relative mx-auto max-w-3xl">
-      <h2 class="font-serif text-4xl tracking-tight">Ready for TEFCA?</h2>
+      <h2 class="font-serif text-4xl tracking-tight">Imaging on the same terms</h2>
       <p class="mt-5 text-lg text-mist">
-        As a network built for TEFCA, Lattix lets lab and imaging vendors exchange nationally while
-        meeting future government requirements for diagnostic data — without a separate federal
-        project.
+        Imaging groups live the same story: faxed requisitions, burned CDs, and EHRs that will not
+        staff a one-off. Electronic orders and structured reports — radiology, cardiology, specialty
+        studies — on the lattice the labs already use.
       </p>
     </div>
   </section>
 
   <section class="bg-cream px-5 py-24 sm:px-8">
     <div class="mx-auto max-w-7xl">
-      <h2 class="max-w-2xl font-serif text-4xl tracking-tight">With a complete patient context</h2>
+      <h2 class="max-w-2xl font-serif text-4xl tracking-tight">A path that does not dead-end</h2>
       <p class="mt-5 max-w-2xl text-ink/70">
-        CLIA labs and imaging groups with access to an actionable clinical history can interpret
-        results correctly, inform genetic testing, distribute nationally, identify future testing
-        needs, and avoid unnecessary studies.
+        Regional and specialty partners form the density. When national laboratories and imaging
+        networks join, they use the same interface. The EHR that connected for you does not rip
+        and replace to reach them — and you are not stranded on a side door.
       </p>
     </div>
   </section>
 
   <Trust />
-  <CTA title="Join the diagnostic lattice" />
+  <CTA title="Join the diagnostic lattice" lede="Tell us how you take orders today. We will talk through the connection." />
 </Base>

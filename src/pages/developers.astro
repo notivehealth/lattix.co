@@ -8,12 +8,12 @@ import Button from '../components/Button.astro';
 
 <Base
   title="Developers"
-  description="FHIR-native APIs for clinical records, lab and imaging orders, alerts, and patient access. Sandbox, versioned changes, sample code."
+  description="FHIR-native APIs for lab and imaging orders, structured results, and the clinical record. Sandbox, versioned changes, sample code."
 >
   <PageHero
     eyebrow="Developers"
     title="The lattice, as an API"
-    lede="Integrate Clinical Record, Diagnostics, Alerts, and Patient Access with FHIR REST APIs, a sandbox tenant, and production-ready examples."
+    lede="Integrate Diagnostics and Clinical Record with FHIR REST APIs, a sandbox tenant, and production-shaped examples."
     primaryHref="/contact"
     primaryLabel="Request sandbox access"
     secondaryHref="#fhir"
@@ -25,12 +25,12 @@ import Button from '../components/Button.astro';
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {
           [
-            { t: 'Software + API', d: 'Web application for operators, FHIR for product teams.' },
+            { t: 'FHIR REST APIs', d: 'Orders, results, and the chart payload — the lattice as versioned endpoints.' },
             { t: 'Sandbox', d: 'A non-production tenant for development and testing.' },
-            { t: 'Sample code', d: 'Node, Python, and browser examples for the common paths.' },
+            { t: 'Sample code', d: 'Node and Python examples for the order and result paths.' },
             { t: 'Versioned changes', d: 'API changes ship with versions, not surprises.' },
-            { t: 'Workflow diagrams', d: 'Order, retrieve, subscribe — documented as they run.' },
-            { t: 'Metadata support', d: 'Capability statements and resource metadata, FHIR-native.' },
+            { t: 'Workflow diagrams', d: 'Order, result, file — documented as they run.' },
+            { t: 'HL7 under the hood', d: 'Partners who still speak v2 do not force your product off FHIR.' },
           ].map((i) => (
             <article class="rounded-2xl border border-ink/8 bg-cream p-6">
               <h2 class="font-medium">{i.t}</h2>
@@ -46,14 +46,14 @@ import Button from '../components/Button.astro';
     <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
       <div>
         <p class="text-[0.75rem] font-medium uppercase tracking-[0.2em] text-gold">Example</p>
-        <h2 class="mt-4 font-serif text-4xl tracking-tight">Read a patient from FHIR</h2>
+        <h2 class="mt-4 font-serif text-4xl tracking-tight">Place an order over FHIR</h2>
         <p class="mt-5 text-mist">
           Base URL <span class="font-mono text-signal">https://api.lattix.co/fhir</span>. OAuth 2.0
-          bearer tokens. Resources you already know: Patient, Encounter, Observation, DiagnosticReport,
-          ServiceRequest, DocumentReference, Subscription.
+          bearer tokens. Resources you already know: Patient, ServiceRequest, Observation,
+          DiagnosticReport, ImagingStudy, Subscription.
         </p>
         <p class="mt-4 text-sm text-mist">
-          Legacy interop is handled under the hood: IHE, X12, C-CDA, Direct, HL7 v2.
+          Legacy interop is handled under the hood: HL7 v2, SFTP, MLLP.
         </p>
         <div class="mt-8">
           <Button href="/contact" variant="primary">Get credentials</Button>
@@ -77,12 +77,12 @@ import Button from '../components/Button.astro';
           <tbody class="bg-paper">
             {
               [
-                ['Patient', 'Identity, MPI match, enrollment'],
+                ['Patient', 'Identity and match'],
                 ['ServiceRequest', 'Lab and imaging orders'],
                 ['DiagnosticReport / Observation', 'Structured results'],
-                ['DocumentReference / Composition', 'C-CDA and clinical documents'],
-                ['Encounter', 'ADT context and inferred activity'],
-                ['Subscription', 'Clinical Alerts and ADT delivery'],
+                ['ImagingStudy', 'Imaging context alongside the report'],
+                ['DocumentReference', 'Clinical documents on the payload'],
+                ['Subscription', 'Result delivery when the lab files'],
               ].map(([r, u]) => (
                 <tr class="border-t border-ink/8">
                   <td class="px-5 py-3 font-mono text-xs">{r}</td>

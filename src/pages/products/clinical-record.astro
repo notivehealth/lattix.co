@@ -1,74 +1,59 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import Stats from '../../components/Stats.astro';
-import RecordPreview from '../../components/RecordPreview.astro';
+import ExchangePreview from '../../components/ExchangePreview.astro';
 import CTA from '../../components/CTA.astro';
 import Trust from '../../components/Trust.astro';
 import { dataTypes } from '../../data/site';
 
 const uses = [
-  { title: 'Virtual care', body: 'Streamline intake and share progress notes with clinicians across the country.' },
-  { title: 'Chronic condition management', body: 'Inform prevention, management, and treatment with a full history — not the last visit.' },
-  { title: 'Specialty pharmacy', body: 'Identify efficacious, cost-effective therapies from clinical and medication history.' },
-  { title: 'Remote patient monitoring', body: 'Pull comprehensive clinical data and share Continuity of Care Documents back to national networks.' },
-  { title: 'Specialty CLIA labs', body: 'Interpret complex results against the rest of the chart, not a single requisition.' },
-  { title: 'Triage and care coordination', body: 'Give nurses and coordinators medications, allergies, procedures, and recent encounters in real time.' },
+  { title: 'Outpatient care', body: 'File labs, imaging, and prior history into the chart the clinician already has open.' },
+  { title: 'Virtual care', body: 'Collect a usable history before the visit — from the organizations on the lattice, not a fax pile.' },
+  { title: 'Care coordination', body: 'Put medications, allergies, procedures, and recent encounters into the systems coordinators already run.' },
+  { title: 'Specialty diagnostics', body: 'Interpret complex results against the rest of the record, not a single requisition.' },
+  { title: 'Digital health', body: 'Ship clinical features on a FHIR payload instead of becoming an interoperability company.' },
+  { title: 'Population workflows', body: 'The same interchange that files a result can assemble a history for the people you are already treating.' },
 ];
 ---
 
 <Base
   title="Clinical Record"
-  description="Unlock complete clinical histories. Lattix retrieves, matches, and normalizes records from nationwide EHRs into one longitudinal FHIR chart."
+  description="The chart as data. Lattix delivers a de-duplicated FHIR payload — labs, imaging, medications, notes — from organizations on the lattice into your systems."
 >
   <PageHero
     eyebrow="Clinical Record"
-    title="Unlock complete clinical histories"
-    lede="Exchange data on a national health information network. Treatment, patient access, and insurance purposes of use — FHIR APIs, actionable data."
+    title="The chart, exchanged as data"
+    lede="A de-duplicated FHIR record from the organizations on the lattice. Treatment purpose. Actionable payloads. No second login."
     image="/images/record-glow.jpg"
     secondaryHref="/developers"
     secondaryLabel="FHIR APIs"
   />
 
-  <section class="bg-ink px-5 py-16 text-cream sm:px-8">
-    <div class="mx-auto max-w-7xl">
-      <Stats
-        dark
-        items={[
-          { value: '220M+', label: 'Patients' },
-          { value: '750K+', label: 'Clinicians' },
-          { value: '147K+', label: 'Care sites' },
-          { value: '92%', label: 'U.S. coverage' },
-        ]}
-      />
-    </div>
-  </section>
-
   <section class="bg-paper px-5 py-24 sm:px-8">
     <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
       <div>
-        <h2 class="font-serif text-4xl tracking-tight sm:text-5xl">Empower care teams with EHR data</h2>
+        <h2 class="font-serif text-4xl tracking-tight sm:text-5xl">A complete payload, not a portal</h2>
         <p class="mt-5 text-lg text-ink/70">
-          Important clinical information is missing in nearly one in seven visits. With a complete
-          record, providers make more informed treatment decisions, avoid duplicative testing, and
-          stop waiting 60 days for another organization’s chart.
+          Important clinical information is missing in nearly one in seven visits. Lattix matches
+          the patient, assembles what the lattice holds, and returns a FHIR chart your systems can
+          file, analyze, and act on.
         </p>
         <div class="mt-8 grid gap-5">
           <article>
-            <h3 class="font-medium">Improve outcomes</h3>
-            <p class="mt-1 text-sm text-ink/65">A usable view of medical history — not a stack of faxes — at the point of care.</p>
+            <h3 class="font-medium">File it where care happens</h3>
+            <p class="mt-1 text-sm text-ink/65">A complete history in the EHR or product already in use — not a stack of faxes.</p>
           </article>
           <article>
-            <h3 class="font-medium">Reduce administrative burden</h3>
-            <p class="mt-1 text-sm text-ink/65">Real-time access to a single longitudinal record, instead of hours of records requests.</p>
+            <h3 class="font-medium">Same interchange as diagnostics</h3>
+            <p class="mt-1 text-sm text-ink/65">Orders, results, and the rest of the record share identity, translation, and audit.</p>
           </article>
           <article>
-            <h3 class="font-medium">Skip costly integrations</h3>
-            <p class="mt-1 text-sm text-ink/65">One national clinical network. No one-off connections for every health system you encounter.</p>
+            <h3 class="font-medium">Provenance on every fact</h3>
+            <p class="mt-1 text-sm text-ink/65">De-duplicated, coded, and traceable to the source organization on the lattice.</p>
           </article>
         </div>
       </div>
-      <RecordPreview />
+      <ExchangePreview />
     </div>
   </section>
 
