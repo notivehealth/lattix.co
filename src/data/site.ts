@@ -1,7 +1,7 @@
 export const site = {
   name: 'Lattix',
   url: 'https://lattix.co',
-  email: 'hello@lattix.co',
+  email: 'dillon@lattix.co',
   tagline: 'The lattice for health data interchange.',
   description:
     'Lattix is the interchange for labs, imaging, and the clinical record. One interface for electronic orders, structured results, and FHIR-native exchange — instead of a new project for every partner.',

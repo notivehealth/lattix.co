@@ -42,4 +42,4 @@ For CI, use [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/bui
 printf '%s' 're_…' | bunx wrangler secret put RESEND_API_KEY
 ```
 
-Verify `lattix.co` in Resend so `hello@lattix.co` can send. `CONTACT_TO` / `CONTACT_FROM` live in `wrangler.jsonc`.
+Verify `lattix.co` in Resend so `dillon@lattix.co` can send. `CONTACT_TO` / `CONTACT_FROM` live in `wrangler.jsonc`.

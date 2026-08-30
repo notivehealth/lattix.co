@@ -9,8 +9,8 @@
     { "pattern": "www.lattix.co/*", "zone_name": "lattix.co" }
   ],
   "vars": {
-    "CONTACT_TO": "hello@lattix.co",
-    "CONTACT_FROM": "Lattix <hello@lattix.co>"
+    "CONTACT_TO": "dillon@lattix.co",
+    "CONTACT_FROM": "Lattix <dillon@lattix.co>"
   },
   "assets": {
     "directory": "./dist",
