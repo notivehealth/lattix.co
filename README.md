@@ -26,7 +26,7 @@ The site is pre-rendered. Wrangler serves `dist/` as static assets.
 bun run deploy
 ```
 
-Then attach the custom domain `lattix.co` (and `www`) in the Cloudflare dashboard.
+`wrangler.jsonc` attaches `lattix.co` (custom domain) and `www.lattix.co` (zone route) on deploy.
 
 For CI, use [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) with:
 

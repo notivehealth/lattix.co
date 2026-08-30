@@ -2,6 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lattix",
   "compatibility_date": "2026-08-29",
+  "routes": [
+    { "pattern": "lattix.co", "custom_domain": true },
+    { "pattern": "www.lattix.co/*", "zone_name": "lattix.co" }
+  ],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
